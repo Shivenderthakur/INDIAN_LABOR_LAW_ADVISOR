@@ -5,7 +5,7 @@ import os
 # Initialize Flask app
 
 # Set OpenAI API key
-openai.api_key = openai.api_key = os.getenv(API_KEY)
+openai.api_key = os.getenv(API_KEY)
 
 # Function to get the answer from OpenAI API
 def get_labour_law_answer(question):

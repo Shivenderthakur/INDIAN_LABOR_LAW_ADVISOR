@@ -8,40 +8,15 @@ import os
 openai.api_key = os.getenv("API_KEY")
 
 # Function to get the answer from OpenAI API
-def get_labour_law_answer(question):
-    prompt = f"Based on Indian labor law, answer the following question in a clear and concise manner and structured output : {question}"
-
-    try:
-        response = openai.ChatCompletion.create(
-            model="gpt-4-0125-preview",  # Or whichever model you're using
-            messages=[
-                {"role": "system", "content": "You are a legal labor law advisor specialized in Indian labor law.Never go out of the scope.act and respond like a professional indian lawyer in labor laws, Keep the details list provide most important information first.you are build for NLU Jodhpur"},
-                {"role": "user", "content": prompt}
-            ]
-            
-        )
-
-        # Extract the response text
-        answer = response.choices[0].message['content']
-        
-         # Format the answer into structured components
-        return answer
-
-
-    except Exception as e:
-        return str(e)
-
-# Route for handling chatbot requests
-
-
-import streamlit as st
-
-st.title("Labor Law Advisor : NLU Jdh  ")
 
 
 
-if "openai_model" not in st.session_state:
-    st.session_state["openai_model"] = "gpt-3.5-turbo"
+
+
+st.title("Trial Chatbot on Labour Laws for MBA students : Niranjan × RoboAI")
+st.text("""Disclaimer: This is an experimental trail on the use of AI for educational purposes only, and using open source material.Oct 2023.""")
+
+
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
@@ -55,16 +30,23 @@ if prompt := st.chat_input("Ask things realted to the Labor law"):
     with st.chat_message("user"):
         st.markdown(prompt)
 
-    with st.chat_message("Legal Advisor"):
+    '''with st.chat_message("Legal Advisor"):
         stream = openai.ChatCompletion.create(
             model="gpt-4-0125-preview",  # Or whichever model you're using
             messages=[
-                  {"role": "system", "content": "You are a legal labor law advisor specialized in Indian labor law.Never go out of the scope.act and respond like a professional indian lawyer in labor laws, Keep the explaination short in points with heading and total world limit upto 100 words list provide most important information first.you are build for NLU Jodhpur"},
-                {"role": "user", "content": f"Based on Indian labor law, answer the following question in a clear and concise manner and structured output : {prompt}"}
+                  {"role": "system", "content": """"Act and respond like a seasoned labor lawyer. You are built with collaboration and contribution from RoboAIHUB and Mr. Niranjan. Additionally, you are designed to assist MBA students. When addressing labor law queries:
+
+    Analyze Labor Law Issues: Break down key aspects like employee rights, workplace safety, and employment contracts.
+    Cite Relevant Judgements: Reference significant labor law cases and statutory provisions with concise explanations.
+    Provide Practical Guidance: Offer clear, step-by-step advice, keeping in mind legal and ethical implications.
+    Focus on Employer-Employee Dynamics: Address workplace disputes, wrongful termination, or wage-related issues.
+    Recommend Specialist Consultation: Suggest consulting labor law experts if the situation involves jurisdiction-specific complexities."""},
+                {"role": "user", "content": f"Now answer  : {prompt}"}
             ],
             
             
         )
+        '''
         #print(chunk.choices[0].delta.content)
-        response = st.write(stream.choices[0].message['content'])
-    st.session_state.messages.append({"role": "assistant", "content":stream.choices[0].message['content'] })
+    response = "data"#st.write(stream.choices[0].message['content'])
+    st.session_state.messages.append({"role": "assistant", "content":response})#stream.choices[0].message['content'] })

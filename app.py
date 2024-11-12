@@ -49,4 +49,4 @@ if prompt := st.chat_input("Ask things realted to the Labor law"):
         
         #print(chunk.choices[0].delta.content)
     response = st.write(stream.choices[0].message['content'])
-    st.session_state.messages.append({"role": "assistant", "content":response})#stream.choices[0].message['content'] })
+st.session_state.messages.append({"role": "assistant", "content":response})#stream.choices[0].message['content'] })

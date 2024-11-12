@@ -30,7 +30,7 @@ if prompt := st.chat_input("Ask things realted to the Labor law"):
     with st.chat_message("user"):
         st.markdown(prompt)
 
-    '''with st.chat_message("Legal Advisor"):
+    with st.chat_message("Legal Advisor"):
         stream = openai.ChatCompletion.create(
             model="gpt-4-0125-preview",  # Or whichever model you're using
             messages=[
@@ -46,7 +46,7 @@ if prompt := st.chat_input("Ask things realted to the Labor law"):
             
             
         )
-        '''
+        
         #print(chunk.choices[0].delta.content)
-    response = "data"#st.write(stream.choices[0].message['content'])
+    response = st.write(stream.choices[0].message['content'])
     st.session_state.messages.append({"role": "assistant", "content":response})#stream.choices[0].message['content'] })

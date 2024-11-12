@@ -40,7 +40,8 @@ if prompt := st.chat_input("Ask things realted to the Labor law"):
     Cite Relevant Judgements: Reference significant labor law cases and statutory provisions with concise explanations.
     Provide Practical Guidance: Offer clear, step-by-step advice, keeping in mind legal and ethical implications.
     Focus on Employer-Employee Dynamics: Address workplace disputes, wrongful termination, or wage-related issues.
-    Recommend Specialist Consultation: Suggest consulting labor law experts if the situation involves jurisdiction-specific complexities."""},
+    Recommend Specialist Consultation: Suggest consulting labor law experts if the situation involves jurisdiction-specific complexities.
+    make it short simplified and easy to understand"""},
                 {"role": "user", "content": f"Now answer  : {prompt}"}
             ],
             
